@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CCTV Live Monitor</title>
+
+<style>
+body{
+margin:0;
+font-family:Segoe UI;
+background:#0f0f0f;
+color:white;
+}
+
+/* Sidebar */
+.sidebar{
+width:220px;
+height:100%;
+position:fixed;
+left:0;
+top:0;
+background:linear-gradient(180deg,#000,#1f1c2c);
+padding-top:20px;
+}
+
+.sidebar h2{
+text-align:center;
+color:cyan;
+}
+
+.sidebar a{
+display:block;
+padding:15px;
+color:white;
+text-decoration:none;
+}
+
+.sidebar a:hover{
+background:cyan;
+color:black;
+}
+
+.main{
+margin-left:220px;
+padding:40px;
+text-align:center;
+}
+
+.camera-box{
+position:relative;
+display:inline-block;
+border:5px solid cyan;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 0 25px cyan;
+}
+
+.camera-box img{
+width:600px;
+height:350px;
+object-fit:cover;
+}
+
+/* REC indicator */
+.rec{
+position:absolute;
+top:15px;
+left:15px;
+background:red;
+color:white;
+padding:5px 10px;
+border-radius:20px;
+font-weight:bold;
+animation:blink 1s infinite;
+}
+
+@keyframes blink{
+0%{opacity:1;}
+50%{opacity:0.3;}
+100%{opacity:1;}
+}
+
+.status{
+margin-top:20px;
+font-size:18px;
+}
+
+button{
+margin-top:20px;
+padding:8px 20px;
+border:none;
+border-radius:25px;
+background:cyan;
+cursor:pointer;
+font-weight:bold;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+<h2>⚡ Dashboard</h2>
+<a href="control.html">🏠 Home</a>
+<a href="trending.html">🔥 Trending</a>
+<a href="store.html">🛒 Store</a>
+<a href="cctv.html">📹 CCTV</a>
+<a href="index.html">🚪 Logout</a>
+</div>
+
+<div class="main">
+
+<h1>📹 Live CCTV Monitor</h1>
+
+<div class="camera-box">
+<div class="rec">● REC</div>
+<img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511">
+</div>
+
+<div class="status">
+🟢 Status: Camera Online
+</div>
+
+<button onclick="alert('Snapshot Captured 📸')">Take Snapshot</button>
+
+</div>
+
+</body>
+</html>

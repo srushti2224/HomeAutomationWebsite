@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Security Control Panel</title>
+
+<style>
+body{
+margin:0;
+font-family:Segoe UI;
+background:#0f0f0f;
+color:white;
+}
+
+/* Sidebar */
+.sidebar{
+width:220px;
+height:100%;
+position:fixed;
+left:0;
+top:0;
+background:linear-gradient(180deg,#000,#1f1c2c);
+padding-top:20px;
+}
+
+.sidebar h2{
+text-align:center;
+color:cyan;
+}
+
+.sidebar a{
+display:block;
+padding:15px;
+color:white;
+text-decoration:none;
+}
+
+.sidebar a:hover{
+background:cyan;
+color:black;
+}
+
+.main{
+margin-left:220px;
+padding:40px;
+text-align:center;
+}
+
+.panel{
+background:#1f1c2c;
+padding:30px;
+border-radius:20px;
+display:inline-block;
+box-shadow:0 0 25px cyan;
+width:400px;
+}
+
+.status{
+margin:15px 0;
+font-weight:bold;
+}
+
+button{
+padding:8px 20px;
+margin:10px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+font-weight:bold;
+transition:0.3s;
+}
+
+.green{ background:limegreen; color:white; }
+.red{ background:red; color:white; }
+.cyan{ background:cyan; }
+
+button:hover{
+transform:scale(1.1);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+<h2>⚡ Dashboard</h2>
+<a href="control.html">🏠 Home</a>
+<a href="cctv.html">📹 CCTV</a>
+<a href="security.html">🔐 Security</a>
+<a href="index.html">🚪 Logout</a>
+</div>
+
+<div class="main">
+
+<h1>🔐 Security Control Panel</h1>
+
+<div class="panel">
+
+<div class="status" id="systemStatus">System: DISARMED</div>
+<button class="green" onclick="armSystem()">Arm System</button>
+<button class="red" onclick="disarmSystem()">Disarm System</button>
+
+<hr>
+
+<div class="status" id="doorStatus">Door: LOCKED</div>
+<button class="cyan" onclick="toggleDoor()">Toggle Door Lock</button>
+
+<hr>
+
+<div class="status" id="motionStatus">Motion Sensor: INACTIVE</div>
+<button class="red" onclick="triggerMotion()">Trigger Motion</button>
+
+</div>
+
+</div>
+
+<script>
+
+function armSystem(){
+document.getElementById("systemStatus").innerHTML="System: ARMED ✅";
+document.getElementById("systemStatus").style.color="lime";
+}
+
+function disarmSystem(){
+document.getElementById("systemStatus").innerHTML="System: DISARMED ❌";
+document.getElementById("systemStatus").style.color="red";
+}
+
+function toggleDoor(){
+let door=document.getElementById("doorStatus");
+
+if(door.innerHTML.includes("LOCKED")){
+door.innerHTML="Door: UNLOCKED 🔓";
+door.style.color="orange";
+}else{
+door.innerHTML="Door: LOCKED 🔒";
+door.style.color="white";
+}
+}
+
+function triggerMotion(){
+let motion=document.getElementById("motionStatus");
+motion.innerHTML="🚨 MOTION DETECTED!";
+motion.style.color="red";
+alert("⚠ Intruder Alert!");
+}
+
+</script>
+
+</body>
+</html>

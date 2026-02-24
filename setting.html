@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Settings</title>
+
+<style>
+body{
+margin:0;
+font-family:'Segoe UI', sans-serif;
+background:#111;
+color:white;
+text-align:center;
+}
+
+h1{
+padding:20px;
+text-shadow:0 0 15px cyan;
+}
+
+.container{
+margin-top:40px;
+}
+
+.card{
+background:#1c1c1c;
+padding:25px;
+margin:20px auto;
+width:60%;
+border-radius:15px;
+box-shadow:0 0 20px rgba(0,255,255,0.3);
+}
+
+.toggle-btn{
+padding:10px 20px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.on{
+background:limegreen;
+color:white;
+}
+
+.off{
+background:red;
+color:white;
+}
+
+select{
+padding:8px;
+border-radius:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>⚙ Settings</h1>
+
+<div class="container">
+
+<div class="card">
+<h2>🔔 Notifications</h2>
+<button id="notifyBtn" class="toggle-btn off" onclick="toggleNotify()">OFF</button>
+</div>
+
+<div class="card">
+<h2>🌙 Theme Preference</h2>
+<select onchange="changeTheme(this.value)">
+<option value="dark">Dark</option>
+<option value="light">Light</option>
+</select>
+</div>
+
+</div>
+
+<a href="control.html">
+<button style="margin-top:20px;">⬅ Back to Dashboard</button>
+</a>
+
+<script>
+
+/* Load saved settings */
+window.onload = function(){
+if(localStorage.getItem("notify")=="on"){
+setNotify(true);
+}
+if(localStorage.getItem("theme")=="light"){
+document.body.style.background="white";
+document.body.style.color="black";
+}
+}
+
+/* Notification Toggle */
+function toggleNotify(){
+var btn = document.getElementById("notifyBtn");
+
+if(btn.innerHTML=="OFF"){
+setNotify(true);
+localStorage.setItem("notify","on");
+}else{
+setNotify(false);
+localStorage.setItem("notify","off");
+}
+}
+
+function setNotify(state){
+var btn = document.getElementById("notifyBtn");
+if(state){
+btn.innerHTML="ON";
+btn.classList.remove("off");
+btn.classList.add("on");
+}else{
+btn.innerHTML="OFF";
+btn.classList.remove("on");
+btn.classList.add("off");
+}
+}
+
+/* Theme Change */
+function changeTheme(value){
+if(value=="light"){
+document.body.style.background="white";
+document.body.style.color="black";
+localStorage.setItem("theme","light");
+}else{
+document.body.style.background="#111";
+document.body.style.color="white";
+localStorage.setItem("theme","dark");
+}
+}
+
+</script>
+
+</body>
+</html>

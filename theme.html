@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Theme Settings</title>
+
+<style>
+body{
+margin:0;
+font-family:Segoe UI;
+transition:0.5s;
+}
+
+.dark{
+background:#0f0f0f;
+color:white;
+}
+
+.light{
+background:white;
+color:black;
+}
+
+/* Sidebar */
+.sidebar{
+width:220px;
+height:100%;
+position:fixed;
+left:0;
+top:0;
+background:linear-gradient(180deg,#000,#1f1c2c);
+padding-top:20px;
+}
+
+.sidebar h2{
+text-align:center;
+color:cyan;
+}
+
+.sidebar a{
+display:block;
+padding:15px;
+color:white;
+text-decoration:none;
+}
+
+.main{
+margin-left:220px;
+padding:50px;
+text-align:center;
+}
+
+button{
+padding:10px 20px;
+border:none;
+border-radius:25px;
+cursor:pointer;
+font-weight:bold;
+background:cyan;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+</style>
+</head>
+
+<body class="dark">
+
+<div class="sidebar">
+<h2>⚡ Dashboard</h2>
+<a href="control.html">🏠 Home</a>
+<a href="trending.html">🔥 Trending</a>
+<a href="store.html">🛒 Store</a>
+<a href="theme.html">🌙 Theme</a>
+<a href="index.html">🚪 Logout</a>
+</div>
+
+<div class="main">
+<h1>🌙 Theme Settings</h1>
+<p>Click button to change theme</p>
+<button onclick="toggleTheme()">Toggle Theme</button>
+</div>
+
+<script>
+function toggleTheme(){
+let body = document.body;
+
+if(body.classList.contains("dark")){
+body.classList.remove("dark");
+body.classList.add("light");
+}else{
+body.classList.remove("light");
+body.classList.add("dark");
+}
+}
+</script>
+
+</body>
+</html>

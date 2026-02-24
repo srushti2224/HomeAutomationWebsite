@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home Automation Dashboard</title>
+
+<style>
+body{
+margin:0;
+font-family:Segoe UI;
+background:#111;
+color:white;
+}
+
+/* Sidebar */
+.sidebar{
+width:220px;
+height:100%;
+position:fixed;
+left:0;
+top:0;
+background:linear-gradient(180deg,#000,#1f1c2c);
+padding-top:20px;
+}
+
+.sidebar h2{
+text-align:center;
+color:cyan;
+}
+
+.sidebar a{
+display:block;
+padding:15px;
+color:white;
+text-decoration:none;
+transition:0.3s;
+}
+
+.sidebar a:hover{
+background:cyan;
+color:black;
+}
+
+/* Main */
+.main{
+margin-left:220px;
+padding:20px;
+}
+
+/* Room Section */
+.room{
+margin-bottom:40px;
+border-radius:20px;
+overflow:hidden;
+background-size:cover;
+background-position:center;
+padding:60px 20px;
+}
+
+.overlay{
+background:rgba(0,0,0,0.6);
+padding:30px;
+border-radius:20px;
+text-align:center;
+}
+
+.card{
+background:rgba(255,255,255,0.1);
+padding:20px;
+margin:15px auto;
+border-radius:15px;
+width:200px;
+}
+
+button{
+padding:8px 15px;
+border:none;
+border-radius:20px;
+cursor:pointer;
+font-weight:bold;
+margin-top:10px;
+}
+
+.on{
+background:limegreen;
+color:white;
+}
+
+.off{
+background:red;
+color:white;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Sidebar -->
+<div class="sidebar">
+<h2>⚡ Dashboard</h2>
+<a href="profile.html">👤 Profile</a>
+<a href="#" onclick="openSettings()">⚙ Settings</a>
+<a href="about.html">📘 About</a>
+<a href="contact.html">📩 Contact</a>
+<a href="index.html">🚪 Logout</a>
+<a href="trending.html">🔥 Trending</a>
+<a href="theme.html">🌙 Theme</a>
+<a href="cctv.html">📹 CCTV</a>
+<a href="safety.html">🚨 Safety</a>
+<a href="voice.html">🎙 Voice</a>
+</div>
+
+<div class="main">
+
+<!-- ✅ Hall (Correct Hall Image) -->
+<div class="room" style="background-image:url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6');">
+<div class="overlay">
+<h1>Hall</h1>
+
+<div class="card">
+<h3>Light</h3>
+<p id="hallLight">OFF</p>
+<button onclick="toggle('hallLight',this)" class="off">Toggle</button>
+</div>
+
+</div>
+</div>
+
+<!-- ✅ Bedroom (Correct Bedroom Image) -->
+<div class="room" style="background-image:url('https://images.unsplash.com/photo-1616594039964-ae9021a400a0');">
+<div class="overlay">
+<h1>Bedroom</h1>
+
+<div class="card">
+<h3>AC</h3>
+<p id="bedAC">OFF</p>
+<button onclick="toggle('bedAC',this)" class="off">Toggle</button>
+</div>
+
+</div>
+</div>
+
+<!-- ✅ Kitchen -->
+<div class="room" style="background-image:url('https://images.unsplash.com/photo-1556911220-e15b29be8c8f');">
+<div class="overlay">
+<h1>Kitchen</h1>
+
+<div class="card">
+<h3>Light</h3>
+<p id="kitLight">OFF</p>
+<button onclick="toggle('kitLight',this)" class="off">Toggle</button>
+</div>
+
+</div>
+</div>
+
+</div>
+
+<script>
+function toggle(id,btn){
+var text=document.getElementById(id);
+
+if(text.innerHTML=="OFF"){
+text.innerHTML="ON";
+text.style.color="lime";
+btn.classList.remove("off");
+btn.classList.add("on");
+}
+else{
+text.innerHTML="OFF";
+text.style.color="red";
+btn.classList.remove("on");
+btn.classList.add("off");
+}
+}
+</script>
+
+</body>
+</html>

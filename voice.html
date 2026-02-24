@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Voice Control</title>
+
+<style>
+body{
+margin:0;
+font-family:Segoe UI;
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+color:white;
+text-align:center;
+}
+
+.sidebar{
+width:220px;
+height:100%;
+position:fixed;
+background:#111;
+padding-top:20px;
+}
+
+.sidebar h2{
+color:cyan;
+}
+
+.sidebar a{
+display:block;
+padding:15px;
+color:white;
+text-decoration:none;
+}
+
+.sidebar a:hover{
+background:cyan;
+color:black;
+}
+
+.main{
+margin-left:220px;
+padding:60px;
+}
+
+.mic{
+font-size:80px;
+margin:20px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.glow{
+animation:glow 1s infinite;
+}
+
+@keyframes glow{
+0%{text-shadow:0 0 5px cyan;}
+50%{text-shadow:0 0 30px cyan;}
+100%{text-shadow:0 0 5px cyan;}
+}
+
+.status{
+margin-top:20px;
+font-size:20px;
+font-weight:bold;
+}
+
+button{
+padding:10px 25px;
+border:none;
+border-radius:25px;
+background:cyan;
+cursor:pointer;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+<h2>⚡ Dashboard</h2>
+<a href="control.html">🏠 Home</a>
+<a href="voice.html">🎙 Voice</a>
+<a href="index.html">🚪 Logout</a>
+</div>
+
+<div class="main">
+
+<h1>🎙 Smart Voice Control</h1>
+
+<div class="mic" id="mic">🎤</div>
+
+<button onclick="startListening()">Start Voice Command</button>
+
+<div class="status" id="status">Status: Waiting...</div>
+
+</div>
+
+<script>
+function startListening(){
+let mic=document.getElementById("mic");
+let status=document.getElementById("status");
+
+mic.classList.add("glow");
+status.innerHTML="Listening... 🎧";
+
+setTimeout(()=>{
+status.innerHTML="Command Detected: Turn ON Light 💡";
+alert("Light Turned ON");
+mic.classList.remove("glow");
+},3000);
+}
+</script>
+
+</body>
+</html>

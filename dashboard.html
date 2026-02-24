@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Smart Home Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Segoe UI;
+}
+
+body{
+background:linear-gradient(-45deg,#141e30,#243b55,#0f2027,#1c1c1c);
+background-size:400% 400%;
+animation:gradientBG 12s ease infinite;
+color:white;
+min-height:100vh;
+}
+
+@keyframes gradientBG{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+header{
+text-align:center;
+padding:25px;
+font-size:28px;
+font-weight:bold;
+letter-spacing:1px;
+background:rgba(255,255,255,0.05);
+backdrop-filter:blur(10px);
+}
+
+.container{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:30px;
+padding:60px 20px;
+}
+
+.card{
+background:rgba(255,255,255,0.08);
+width:250px;
+padding:40px 20px;
+border-radius:20px;
+text-align:center;
+backdrop-filter:blur(15px);
+transition:0.4s;
+box-shadow:0 0 25px rgba(0,0,0,0.5);
+animation:fadeUp 1s ease;
+}
+
+.card:hover{
+transform:translateY(-10px) scale(1.05);
+box-shadow:0 0 25px #00c6ff;
+}
+
+@keyframes fadeUp{
+from{opacity:0; transform:translateY(30px);}
+to{opacity:1; transform:translateY(0);}
+}
+
+.card h2{
+margin-bottom:20px;
+}
+
+button{
+padding:12px 25px;
+border:none;
+border-radius:30px;
+font-weight:bold;
+cursor:pointer;
+transition:0.4s;
+}
+
+.control{
+background:linear-gradient(45deg,#00c6ff,#0072ff);
+color:white;
+}
+
+.logout{
+background:linear-gradient(45deg,#ff416c,#ff4b2b);
+color:white;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+.footer{
+text-align:center;
+padding:20px;
+font-size:13px;
+opacity:0.7;
+}
+</style>
+</head>
+
+<body>
+
+<header>🏠 Smart Home Dashboard</header>
+
+<div class="container">
+
+<div class="card">
+<h2>💡 Device Control</h2>
+<button class="control" onclick="goControl()">Open Control</button>
+</div>
+
+<div class="card">
+<h2>🚪 Logout</h2>
+<button class="logout" onclick="logout()">Logout</button>
+</div>
+
+</div>
+
+<div class="footer">
+© 2026 Smart Home Automation
+</div>
+
+<script>
+function goControl(){
+window.location.href="control.html";
+}
+
+function logout(){
+window.location.href="login.html";
+}
+</script>
+
+</body>
+</html>

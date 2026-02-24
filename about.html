@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>About - Home Automation</title>
+
+<style>
+
+body{
+margin:0;
+font-family: 'Segoe UI', sans-serif;
+background: linear-gradient(-45deg,#0f0c29,#302b63,#24243e,#000000);
+background-size: 400% 400%;
+animation: gradientMove 10s ease infinite;
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+@keyframes gradientMove{
+0%{background-position:0% 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0% 50%;}
+}
+
+h1{
+padding:20px;
+font-size:40px;
+letter-spacing:2px;
+text-shadow:0 0 20px cyan;
+}
+
+.container{
+padding:40px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+backdrop-filter: blur(10px);
+padding:30px;
+margin:30px auto;
+width:75%;
+border-radius:20px;
+box-shadow:0 0 25px rgba(0,255,255,0.4);
+transition:0.5s;
+transform:translateY(30px);
+opacity:0;
+animation:fadeUp 1s forwards;
+}
+
+.card:nth-child(1){animation-delay:0.3s;}
+.card:nth-child(2){animation-delay:0.6s;}
+.card:nth-child(3){animation-delay:0.9s;}
+
+@keyframes fadeUp{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+.card:hover{
+transform:scale(1.05);
+box-shadow:0 0 40px cyan;
+}
+
+h2{
+color:cyan;
+}
+
+button{
+margin-top:20px;
+padding:12px 25px;
+border:none;
+border-radius:30px;
+background:cyan;
+color:black;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+background:white;
+transform:scale(1.1);
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>🏠 Home Automation System</h1>
+
+<div class="container">
+
+<div class="card">
+<h2>📌 About Project</h2>
+<p>This Home Automation system allows users to control devices like Lights, Fans, and AC digitally through a smart web dashboard.</p>
+</div>
+
+<div class="card">
+<h2>✨ Key Features</h2>
+<p>
+✔ Multi-Room Control<br>
+✔ ON/OFF Toggle System<br>
+✔ Active Device Counter<br>
+✔ Dark/Light Mode<br>
+✔ Live Digital Clock
+</p>
+</div>
+
+<div class="card">
+<h2>🚀 Future Scope</h2>
+<p>This project can be connected with IoT hardware, mobile applications, and voice control systems for real-time automation.</p>
+</div>
+
+<a href="control.html">
+<button>⬅ Back to Dashboard</button>
+</a>
+
+</div>
+
+</body>
+</html>
